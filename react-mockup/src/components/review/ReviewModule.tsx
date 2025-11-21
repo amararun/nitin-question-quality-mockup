@@ -21,9 +21,9 @@ export function ReviewModule() {
     }
 
     // Filter mock questions by worksheet_id
-    const filtered = (mockQuestionsData as Question[]).filter(
-      (q) => q.worksheet_id === worksheetId
-    )
+    const filtered = (mockQuestionsData as any[]).filter(
+      (q: any) => q.worksheet_id === worksheetId
+    ) as Question[]
     setQuestions(filtered)
     setCurrentPage(1)
   }

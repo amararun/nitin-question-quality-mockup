@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import type { ReactNode } from "react"
 import { TopNav } from "./TopNav"
 import type { NavItem } from "@/types/index"
 
