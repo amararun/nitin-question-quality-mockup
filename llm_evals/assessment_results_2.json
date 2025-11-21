@@ -1,0 +1,179 @@
+﻿[
+  {
+    "question_id": 65477,
+    "assessing_model": "openai/gpt-5-mini",
+    "original_question": "<div>On what factors does the heat generated in a conductor depend upon?</div> <p> </p>",
+    "question_rewrite": "<div>On which factors does the heat generated in a conductor depend?</div> <p> </p>",
+    "question_reason": "Redundant prepositions 'on' and 'upon' used together.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Directly proportional to the time</p>",
+        "rewrite": "<p>Directly proportional to time</p>",
+        "reason": "Unnecessary article 'the'."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Inversely proportional to the time</p>",
+        "rewrite": "<p>Inversely proportional to time</p>",
+        "reason": "Unnecessary article 'the'."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Directly proportional to the density</p>",
+        "rewrite": "<p>Directly proportional to density</p>",
+        "reason": "Unnecessary article 'the'."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Inversely proportional to the mass</p>",
+        "rewrite": "<p>Inversely proportional to mass</p>",
+        "reason": "Unnecessary article 'the'."
+      }
+    ]
+  },
+  {
+    "question_id": 466165,
+    "assessing_model": "openai/gpt-5-mini",
+    "original_question": "<p>Which of the following is the correct for the phenomenon of sea breeze?</p>",
+    "question_rewrite": "<p>Which of the following is correct for the phenomenon of sea breeze?</p>",
+    "question_reason": "Incorrect phrasing 'is the correct'.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>It occur during night.</p>",
+        "rewrite": "<p>It occurs at night.</p>",
+        "reason": "Verb and preposition error."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Air moves from land to sea.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>During the day, air above land is warmer than air above water.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>During the day, air above water is warmer than air above land.</p>",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 403851,
+    "assessing_model": "openai/gpt-5-mini",
+    "original_question": "Jack and Jill hear a gunshot 2 seconds after it is fired. How far away from the gun they are standing? (The speed of sound in air is equal to 330 ms<sup>-1</sup>)",
+    "question_rewrite": "Jack and Jill hear a gunshot 2 seconds after it is fired. How far away from the gun are they standing? (The speed of sound in air is equal to 330 m s<sup>-1</sup>)",
+    "question_reason": "Incorrect word order and unit formatting (missing space).",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "330 m",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "150 m",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "660 m",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "890 m",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "F",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 319381,
+    "assessing_model": "openai/gpt-5-mini",
+    "original_question": "A cup of turmeric milk accidently fell on Priya's dress and she washed it using soap solution. She observed the yellow colour of turmeric changed to red. What is the reason for this colour change?",
+    "question_rewrite": "A cup of turmeric milk accidentally fell on Priya's dress, and she washed it with a soap solution. She observed the yellow colour of turmeric change to red. What is the reason for this colour change?",
+    "question_reason": "Spelling error and awkward phrasing.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "The alkali present in the soap solution reacted with the turmeric.",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "The acid present in the soap solution reacted with the turmeric.",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "The fatty acid in the turmeric reacted with the acid in the soap solution",
+        "rewrite": "The fatty acid in the turmeric reacted with the acid in the soap solution.",
+        "reason": "Missing full stop; inconsistent punctuation."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "None of these",
+        "rewrite": "None of these.",
+        "reason": "Missing full stop; inconsistent punctuation."
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "F",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 123226,
+    "assessing_model": "openai/gpt-5-mini",
+    "original_question": "<p>An iron ball at 60<sup>o</sup>C is dropped in a mug containing water at 60<sup>o</sup>C. The temperature of water ______.</p>",
+    "question_rewrite": "<p>An iron ball at 60<sup>\u00b0</sup>C is dropped in a mug containing water at 60<sup>\u00b0</sup>C. The temperature of the water ______.</p>",
+    "question_reason": "Missing 'the' before 'water' and degree-symbol formatting.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>slightly increase</p>",
+        "rewrite": "<p>Slightly increases</p>",
+        "reason": "Lowercase and incorrect verb form."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>decrease</p>",
+        "rewrite": "<p>Decreases</p>",
+        "reason": "Lowercase and incorrect verb form."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>remain same</p>",
+        "rewrite": "<p>Remains the same</p>",
+        "reason": "Lowercase and missing article."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>increase</p>",
+        "rewrite": "<p>Increases</p>",
+        "reason": "Lowercase and incorrect verb form."
+      }
+    ]
+  }
+]

@@ -1,0 +1,123 @@
+{
+  "summary": {
+    "total_records": 27,
+    "updated_records": 25,
+    "failed_records": 2,
+    "start_time": "2025-11-19T15:42:10.123Z",
+    "end_time": "2025-11-19T15:42:32.456Z",
+    "duration_seconds": 22
+  },
+  "performance": {
+    "total_time_seconds": 22.333,
+    "avg_time_per_record_ms": 827,
+    "throughput_records_per_second": 1.21
+  },
+  "errors": {
+    "count": 2,
+    "breakdown": [
+      {
+        "error_type": "NULL constraint violation",
+        "count": 1,
+        "sample_questionids": [592390],
+        "description": "Final question cannot be NULL for approved status. Question was approved but final_question field is empty."
+      },
+      {
+        "error_type": "HTML validation error",
+        "count": 1,
+        "sample_questionids": [733601],
+        "description": "Unclosed <p> tag in final_answer2. Opening tag without closing tag detected."
+      }
+    ]
+  },
+  "validation": {
+    "pre_update_count": 20145,
+    "post_update_count": 20145,
+    "data_integrity_check": "passed",
+    "foreign_key_violations": 0,
+    "null_constraint_violations": 0,
+    "html_tags_balanced": true,
+    "character_encoding_valid": true,
+    "field_length_limits_respected": true,
+    "referential_integrity_intact": true,
+    "unmodified_columns_checksums_match": true
+  },
+  "rollback_available": true,
+  "backup_location": "/backups/xyz1_backup_2025-11-19_154210.sql",
+  "additional_checks": {
+    "sample_verification": {
+      "sample_size": 10,
+      "verified_correct": 10,
+      "verification_passed": true,
+      "sample_question_ids": [65080, 115135, 227044, 284567, 301245, 412389, 523467, 634512, 745623, 794612]
+    },
+    "column_checksums": {
+      "questionid_checksum": "a7f3e9d2b1c4",
+      "worksheet_id_checksum": "5b8d2f6a3e1c",
+      "correctanswer_checksum": "9c4e7b2f8a3d",
+      "status_checksum": "6d3a9f1e2b5c",
+      "description": "Checksums for unmodified columns match pre-update values"
+    },
+    "unmodified_columns": [
+      "questionid",
+      "existing_question_id",
+      "questiontype",
+      "totalanswers",
+      "questionImage",
+      "answer1Image",
+      "answer2Image",
+      "answer3Image",
+      "answer4Image",
+      "answer5Image",
+      "correctanswer",
+      "hintImage",
+      "difficultylevel",
+      "question_type",
+      "status",
+      "worksheet_id",
+      "assigned_worksheet_ids",
+      "topic",
+      "attempt_counter",
+      "section_name",
+      "section_marks",
+      "section"
+    ],
+    "modified_columns": [
+      "question",
+      "answer1",
+      "answer2",
+      "answer3",
+      "answer4",
+      "answer5",
+      "hint"
+    ],
+    "html_validation": {
+      "total_fields_checked": 175,
+      "valid_html_count": 173,
+      "invalid_html_count": 2,
+      "common_issues": [
+        {
+          "issue": "Unclosed tags",
+          "count": 1,
+          "severity": "medium"
+        },
+        {
+          "issue": "Missing entities",
+          "count": 1,
+          "severity": "low"
+        }
+      ]
+    },
+    "character_encoding_check": {
+      "utf8_compliant": true,
+      "special_chars_preserved": true,
+      "entities_intact": true,
+      "common_chars_tested": ["°", "×", "÷", "≤", "≥", "√", "²", "³"]
+    },
+    "field_length_analysis": {
+      "max_question_length": 512,
+      "max_answer_length": 256,
+      "max_hint_length": 512,
+      "truncation_detected": false
+    }
+  }
+}

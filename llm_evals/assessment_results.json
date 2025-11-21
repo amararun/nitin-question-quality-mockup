@@ -1,0 +1,816 @@
+﻿[
+  {
+    "question_id": 156960,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Which of the following is a good habit?</p>",
+    "question_rewrite": "",
+    "question_reason": "No changes needed.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Always skipping breakfast</p>",
+        "rewrite": "<p>Always skipping breakfast.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Always keeping back straight when you sit or stand</p>",
+        "rewrite": "<p>Always keeping back straight when you sit or stand.</p>",
+        "reason": "Compound adjective 'back straight' needs hyphenation for clarity."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Always eating food hurrily without chewing</p>",
+        "rewrite": "<p>Always eating food hurriedly without chewing.</p>",
+        "reason": "Spelling error: 'hurrily' should be 'hurriedly'. Inconsistent punctuation."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Always eating uncovered food from the roadside</p>",
+        "rewrite": "<p>Always eating uncovered food from the roadside.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      }
+    ]
+  },
+  {
+    "question_id": 115135,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Which of the following is/are not always necessary to observe a shadow?</p> <ol> <li>Sun </li> <li>Screen</li> <li>Source of light</li> <li>Opaque object</li> </ol>",
+    "question_rewrite": "<p>Which of the following is/are not always necessary to observe a shadow?</p>",
+    "question_reason": "Question mark required at the end of a direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Only 1</p>",
+        "rewrite": "<p>Only 1.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Only 2</p>",
+        "rewrite": "<p>Only 2.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Both 1 and 3</p>",
+        "rewrite": "<p>Both 1 and 3.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Both 1 and 2</p>",
+        "rewrite": "<p>Both 1 and 2.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      }
+    ]
+  },
+  {
+    "question_id": 68266,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Why can't one see the flame of a candle when one looks through a bent straw?</p>",
+    "question_rewrite": "<p>Why can't one see the flame of a candle when one looks through a bent straw?</p>",
+    "question_reason": "Question mark required at the end of a direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Circular propagation of light</p>",
+        "rewrite": "<p>Circular propagation of light.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Hyperbolic propagation of light</p>",
+        "rewrite": "<p>Hyperbolic propagation of light.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Transverse propagation of light</p>",
+        "rewrite": "<p>Transverse propagation of light.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Rectilinear propagation of light</p>",
+        "rewrite": "<p>Rectilinear propagation of light.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      }
+    ]
+  },
+  {
+    "question_id": 4216,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Parts of alimentary canal includes all except one. Identify it.</p>",
+    "question_rewrite": "<p>Parts of the alimentary canal include all except one. Identify it?</p>",
+    "question_reason": "Question mark required at the end of a direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Pancreas</p>",
+        "rewrite": "<p>Pancreas.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Buccal cavity</p>",
+        "rewrite": "<p>Buccal cavity.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Pharynx</p>",
+        "rewrite": "<p>Pharynx.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Mouth</p>",
+        "rewrite": "<p>Mouth.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      }
+    ]
+  },
+  {
+    "question_id": 64292,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>A pendulum takes 0.5 s to make one oscillation about its mean position. How long will it take to make 5 oscillations?</p>",
+    "question_rewrite": "<p>A pendulum takes 0.5 s to make one oscillation about its mean position. How long will it take to make 5 oscillations?</p>",
+    "question_reason": "Question mark required at the end of a direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>5 s</p>",
+        "rewrite": "<p>5 s.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>7.5 s</p>",
+        "rewrite": "<p>7.5 s.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>2.5 s</p>",
+        "rewrite": "<p>2.5 s.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>10 s</p>",
+        "rewrite": "<p>10 s.</p>",
+        "reason": "Inconsistent punctuation; should end with a full stop if other options do."
+      }
+    ]
+  },
+  {
+    "question_id": 66631,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>How many days does the moon take to go around the earth?</p>",
+    "question_rewrite": "<p>How many days does the moon take to go around the earth?</p>",
+    "question_reason": "Question should end with a question mark instead of a full stop.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>24 days</p>",
+        "rewrite": "<p>24 days</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>26 days</p>",
+        "rewrite": "<p>26 days</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>27.3 days</p>",
+        "rewrite": "<p>27.3 days</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>30 days</p>",
+        "rewrite": "<p>30 days</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "F",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 100278,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "What kind of food do we get from a cow?",
+    "question_rewrite": "What kind of food do we get from a cow?",
+    "question_reason": "Question should end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "Milk",
+        "rewrite": "Milk",
+        "reason": "Answer options should be capitalised consistently; start with a capital letter."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "Nectar",
+        "rewrite": "Nectar",
+        "reason": "Answer options should be capitalised consistently; start with a capital letter."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "Water",
+        "rewrite": "Water",
+        "reason": "Answer options should be capitalised consistently; start with a capital letter."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "Mushroom",
+        "rewrite": "Mushroom",
+        "reason": "Answer options should be capitalised consistently; start with a capital letter."
+      }
+    ]
+  },
+  {
+    "question_id": 102215,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Which of the following is true about vitamin K?</p>",
+    "question_rewrite": "<p>Which of the following is true about vitamin K?</p>",
+    "question_reason": "Question should end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>It helps the blood to clot in case of wounds and prevents bleeding.</p>",
+        "rewrite": "<p>It helps the blood to clot in case of wounds and prevents bleeding</p>",
+        "reason": "Sentence fragment in answer option should not end with a full stop."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>It supplies energy</p>",
+        "rewrite": "<p>It supplies energy</p>",
+        "reason": "Sentence fragment in answer option should not end with a full stop."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>It increase appetite</p>",
+        "rewrite": "<p>It increase appetite</p>",
+        "reason": "Sentence fragment in answer option should not end with a full stop."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>None of these</p>",
+        "rewrite": "<p>None of these</p>",
+        "reason": "Sentence fragment in answer option should not end with a full stop."
+      }
+    ]
+  },
+  {
+    "question_id": 104238,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Read the clues given below and choose the option that corresponds to these clues.</p> <p>Clue 1: It has no colour.</p> <p>Clue 2: It has no taste or odour.</p> <p>Clue 3: It is a radioactive noble gas.</p> <p>Clue 4: It contributes to air pollution</p>",
+    "question_rewrite": "<p>Read the clues given below and choose the option that corresponds to these clues?</p>",
+    "question_reason": "Question should end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Carbon</p>",
+        "rewrite": "<p>Carbon</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Sulphur</p>",
+        "rewrite": "<p>Sulphur</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Radon</p>",
+        "rewrite": "<p>Radon</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Xenon</p>",
+        "rewrite": "<p>Xenon</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      }
+    ]
+  },
+  {
+    "question_id": 146518,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Which of the following is the best example for a mixture?</p>",
+    "question_rewrite": "<p>Which of the following is the best example for a mixture?</p>",
+    "question_reason": "Question should end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Sugar solution</p>",
+        "rewrite": "<p>Sugar solution</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Air</p>",
+        "rewrite": "<p>Air</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Drinking water</p>",
+        "rewrite": "<p>Drinking water</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>All the above</p>",
+        "rewrite": "<p>All the above</p>",
+        "reason": "Answer options should not end with a full stop if they are fragments."
+      }
+    ]
+  },
+  {
+    "question_id": 147599,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Abdul, while driving to school, computes the average speed for his trip to be 20 km/h. On his return trip along the same route, there is less traffic and the average speed is 30 km/h. What is the average speed for Abdul&rsquo;s trip?</p>",
+    "question_rewrite": "<p>Abdul, while driving to school, computes the average speed for his trip to be 20 km/h. On his return trip along the same route, there is less traffic and the average speed is 30 km/h. What is the average speed for Abdul&rsquo;s trip?</p>",
+    "question_reason": "Missing question mark at the end of the direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>22 km/h</p>",
+        "rewrite": "<p>22 km/h.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>24 km/h</p>",
+        "rewrite": "<p>24 km/h.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>26 km/h</p>",
+        "rewrite": "<p>26 km/h.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>28 km/h</p>",
+        "rewrite": "<p>28 km/h.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      }
+    ]
+  },
+  {
+    "question_id": 164548,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "What is the principle on which working of electric generator is based?",
+    "question_rewrite": "What is the principle on which working of electric generator is based?",
+    "question_reason": "Missing question mark at the end of the direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "Heat",
+        "rewrite": "Heat.",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "Potential Difference",
+        "rewrite": "Potential Difference.",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "Heating effect of current",
+        "rewrite": "Heating effect of current.",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "Electromagnetic Induction",
+        "rewrite": "Electromagnetic Induction.",
+        "reason": "Missing full stop at the end of the answer option."
+      }
+    ]
+  },
+  {
+    "question_id": 227044,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Small pox is caused by ________.</p>",
+    "question_rewrite": "<p>Small pox is caused by ________?</p>",
+    "question_reason": "Missing question mark at the end of the direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Bacteria</p>",
+        "rewrite": "<p>Bacteria.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Fungi</p>",
+        "rewrite": "<p>Fungi.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Protozoa</p>",
+        "rewrite": "<p>Protozoa.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Virus</p>",
+        "rewrite": "<p>Virus.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "0",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 227092,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>We excrete waste products through sweat, urine and stool. _________ is needed for all these activities.</p>",
+    "question_rewrite": "<p>We excrete waste products through sweat, urine and stool. _________ is needed for all these activities?</p>",
+    "question_reason": "Missing question mark at the end of the direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Potassium</p>",
+        "rewrite": "<p>Potassium.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Vitamin K</p>",
+        "rewrite": "<p>Vitamin K.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Water</p>",
+        "rewrite": "<p>Water.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Mineral</p>",
+        "rewrite": "<p>Mineral.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "C",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 284567,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Choose the correct option:</p> <p>Assertion (A): Clinical thermometer cannot be used to measure the temperature of melting ice.<br />Reason (R): The range of clinical thermometer is from 35<sup>o</sup>C to 42<sup>o</sup>C.</p>",
+    "question_rewrite": "<p>Choose the correct option:</p> <p>Assertion (A): Clinical thermometer cannot be used to measure the temperature of melting ice.<br />Reason (R): The range of clinical thermometer is from 35<sup>o</sup>C to 42<sup>o</sup>C?</p>",
+    "question_reason": "Missing question mark at the end of the direct question.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Both A and R are correct and R is the correct explanation of A.</p>",
+        "rewrite": "<p>Both A and R are correct and R is the correct explanation of A.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Both A and R are correct and R is not the correct explanation of A.</p>",
+        "rewrite": "<p>Both A and R are correct and R is not the correct explanation of A.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>A is correct and R is incorrect.</p>",
+        "rewrite": "<p>A is correct and R is incorrect.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Both A and R are incorrect.</p>",
+        "rewrite": "<p>Both A and R are incorrect.</p>",
+        "reason": "Missing full stop at the end of the answer option."
+      }
+    ]
+  },
+  {
+    "question_id": 327294,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>An aluminium strip is kept immersed in freshly prepared ferrous sulphate solution taken in a test tube, the change observed is that ___________.</p>",
+    "question_rewrite": "",
+    "question_reason": "",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>green solution slowly turns colourless</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>lower end of test tube become slightly warm</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>a colourless gas with the smell of burning sulphur is observed</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>light green solution changes to blue</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "F",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 335648,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>If grey means orange, orange means purple, purple means brown, then which of the following is a colour of rainbow?</p>",
+    "question_rewrite": "",
+    "question_reason": "",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Grey</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Orange</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Purple</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Brown</p>",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 267477,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Which of the following can not be used by people to travel from one place to another?</p>",
+    "question_rewrite": "",
+    "question_reason": "",
+    "answers": []
+  },
+  {
+    "question_id": 267807,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>What is the similarity seen in the group of plants as written below?<br /><br />Pepper, Coriander, Cardamom, Cumin</p>",
+    "question_rewrite": "",
+    "question_reason": "",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>They are all medicinal plants.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>We eat the roots of these plants.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>We eat the leaves of these plants.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>These are plant products which are used as spices to cook food.</p>",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 274593,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Given below are two groups of materials namely group X and group Y:<br /><strong>Group X -</strong> Sugar and water, vinegar and water<br /><strong>Group Y -</strong> Chalk and water, iron filings and sand</p> <p>On what basis have they been grouped?</p>",
+    "question_rewrite": "",
+    "question_reason": "",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Group X - They are homogenous mixtures.<br />Group Y - They are heterogenous mixtures.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Group X - They are heterogenous mixtures.<br />Group Y - They are homogenous mixtures.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Group X - They are hard substances.<br />Group Y - They are soft substances.</p>",
+        "rewrite": "",
+        "reason": ""
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Group X - They are soft substances.<br />Group Y - They are hard substances.</p>",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 282590,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Which of the following statements is correct?</p>",
+    "question_rewrite": "<p>Which of the following statements is correct?</p>",
+    "question_reason": "Question must end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>A charged particle can be accelerated by a magnetic field.</p>",
+        "rewrite": "<p>A charged particle can be accelerated by a magnetic field.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>A charged particle cannot be accelerated by a magnetic field.</p>",
+        "rewrite": "<p>A charged particle cannot be accelerated by a magnetic field.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>The speed of a charged particle can be increased by a uniform magnetic field.</p>",
+        "rewrite": "<p>The speed of a charged particle can be increased by a uniform magnetic field.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>The speed of a charged particle can be increased by a non-uniform magnetic field.</p>",
+        "rewrite": "<p>The speed of a charged particle can be increased by a non-uniform magnetic field.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      }
+    ]
+  },
+  {
+    "question_id": 306744,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>How is a whale different from a shark?</p>",
+    "question_rewrite": "<p>How is a whale different from a shark?</p>",
+    "question_reason": "Question must end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>A whale has a backbone, unlike a shark.</p>",
+        "rewrite": "<p>A whale has a backbone, unlike a shark.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>A whale breathes through its gills, unlike a shark.</p>",
+        "rewrite": "<p>A whale breathes through its gills, unlike a shark.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>A whale is warm-blooded, unlike a shark.</p>",
+        "rewrite": "<p>A whale is warm-blooded, unlike a shark.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>A whale is cold-blooded, unlike a shark.</p>",
+        "rewrite": "<p>A whale is cold-blooded, unlike a shark.</p>",
+        "reason": "Sentence fragment should end with a full stop if it is a complete statement."
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "F",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 334410,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>A plant X grows in black soil and requires a warm climate with moderate rainfall to thrive well. It is a natural fibre obtained from the fruit of the plant. Identify X:</p>",
+    "question_rewrite": "<p>A plant X grows in black soil and requires a warm climate with moderate rainfall to thrive well. It is a natural fibre obtained from the fruit of the plant. Identify X?</p>",
+    "question_reason": "Question must end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Jute</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Cotton</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Hemp</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Flax</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "F",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 338540,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Consider the food chain below and answer the question that follows:<br />If the number of frogs decreases, which population will most likely increase?</p>",
+    "question_rewrite": "<p>Consider the food chain below and answer the question that follows:<br />If the number of frogs decreases, which population will most likely increase?</p>",
+    "question_reason": "Question must end with a question mark.",
+    "answers": [
+      {
+        "answer_id": "answer1",
+        "original_answer": "<p>Crickets</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer2",
+        "original_answer": "<p>Hawks</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer3",
+        "original_answer": "<p>Snakes</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer4",
+        "original_answer": "<p>Plants</p>",
+        "rewrite": "",
+        "reason": "No changes needed."
+      },
+      {
+        "answer_id": "answer5",
+        "original_answer": "F",
+        "rewrite": "",
+        "reason": ""
+      }
+    ]
+  },
+  {
+    "question_id": 398718,
+    "assessing_model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "original_question": "<p>Select the activity which is different from the other three based on the types of force involved.<br />P - Picking up suitcase<br />Q - Picking up school books<br />R - Throwing a ball<br />S - Falling of fruits from the tree to the ground</p>",
+    "question_rewrite": "<p>Select the activity which is different from the other three based on the types of force involved?<br />P - Picking up suitcase<br />Q - Picking up school books<br />R - Throwing a ball<br />S - Falling of fruits from the tree to the ground</p>",
+    

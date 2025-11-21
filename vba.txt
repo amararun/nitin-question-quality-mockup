@@ -1,0 +1,532 @@
+'
+' ==================== CHARACTER SANITIZATION FUNCTION ====================
+Function CleanTextForPrompt(inputText As String) As String
+    ' Removes problematic characters that could cause issues with LLM APIs
+    ' Keeps safe characters: dashes (-), bullets (•), standard punctuation, letters, numbers, Unicode
+    
+    Dim i As Long
+    Dim charCode As Long
+    Dim cleanedText As String
+    Dim currentChar As String
+    
+    cleanedText = ""
+    
+    For i = 1 To Len(inputText)
+        currentChar = Mid(inputText, i, 1)
+        
+        ' Use AscW for Unicode support (returns Unicode code point, may be negative for high Unicode)
+        ' Asc() only works for 0-255, AscW() works for full Unicode
+        On Error Resume Next
+        charCode = AscW(currentChar)
+        ' Handle negative values (high Unicode characters > 32767)
+        If charCode < 0 Then
+            charCode = charCode + 65536
+        End If
+        On Error GoTo 0
+        
+        ' Keep all printable characters (32+) and all Unicode (128+)
+        ' Remove control characters except:      (9), (10), (13)
+        If charCode >= 32 Then
+            ' Printable ASCII or Unicode - keep it (includes dashes, bullets, etc.)
+            cleanedText = cleanedText & currentChar
+        ElseIf charCode = 9 Or charCode = 10 Or charCode = 13 Then
+            ' Keep tabs (\t), line feeds (\n), and carriage returns (\r)
+            cleanedText = cleanedText & currentChar
+        ' Else: Remove all other control characters (0-8, 11-12, 14-31)
+        End If
+    Next i
+    
+    ' Remove zero-width characters (common Unicode zero-width spaces)
+    ' These can cause issues in API calls
+    cleanedText = Replace(cleanedText, ChrW(8203), "") ' U+200B (zero-width space)
+    cleanedText = Replace(cleanedText, ChrW(8204), "") ' U+200C (zero-width non-joiner)
+    cleanedText = Replace(cleanedText, ChrW(8205), "") ' U+200D (zero-width joiner)
+    cleanedText = Replace(cleanedText, ChrW(65279), "") ' U+FEFF (zero-width no-break space / BOM)
+    
+    CleanTextForPrompt = cleanedText
+End Function
+
+' ==================== PROMPT UPLOAD MACRO ====================
+Sub UploadPromptFromFile()
+    ' This macro allows users to upload a .txt file containing an LLM prompt
+    ' and stores it in the PROMPT sheet (cell A1) for xlwings Lite to use
+    ' Updated: Now reads UTF-8 files correctly to preserve Unicode characters
+
+    Dim FilePath As String
+    Dim PromptText As String
+    Dim ws As Worksheet
+    Dim FileDialog As FileDialog
+    Dim stream As Object ' ADODB.Stream
+
+    ' Add error handling
+    On Error GoTo ErrorHandler
+
+    ' Use FileDialog for better UX (Windows only, but more user-friendly)
+    Set FileDialog = Application.FileDialog(msoFileDialogFilePicker)
+
+    With FileDialog
+        .Title = "Select Prompt File"
+        .Filters.Clear
+        .Filters.Add "Text Files", "*.txt"
+        .AllowMultiSelect = False
+
+        ' Show dialog
+        If .Show = -1 Then
+            FilePath = .SelectedItems(1)
+        Else
+            ' User cancelled
+            Exit Sub
+        End If
+    End With
+
+    ' Read entire file content as UTF-8 using ADODB.Stream
+    Set stream = CreateObject("ADODB.Stream")
+    stream.Type = 2 ' adTypeText
+    stream.Charset = "UTF-8"
+    stream.Open
+    stream.LoadFromFile FilePath
+    PromptText = stream.ReadText
+    stream.Close
+    Set stream = Nothing
+
+    ' Clean problematic characters (silently, no warning)
+    PromptText = CleanTextForPrompt(PromptText)
+
+    ' Validate content length
+    If Len(PromptText) < 100 Then
+        MsgBox "Warning: The selected file seems too short (" & Len(PromptText) & " characters)." & vbCrLf & _
+               "Are you sure this is a valid prompt file?", vbExclamation, "Short File Detected"
+        ' Continue anyway - user might want to test
+    End If
+
+    ' Create PROMPT sheet if it doesn't exist
+    On Error Resume Next
+    Set ws = ThisWorkbook.Sheets("PROMPT")
+    On Error GoTo ErrorHandler
+
+    If ws Is Nothing Then
+        Set ws = ThisWorkbook.Sheets.Add
+        ws.Name = "PROMPT"
+        ws.Tab.Color = RGB(255, 192, 0) ' Orange tab color
+    End If
+
+    ' Clear the ENTIRE sheet before writing (removes any leftover content from previous imports)
+    ws.Cells.Clear
+
+    ' Store prompt in cell A1
+    ws.Range("A1").Value = PromptText
+    ws.Range("A1").WrapText = True
+    ws.Range("A1").ColumnWidth = 100
+    ws.Range("A1").RowHeight = 400 ' Large row height for visibility
+
+    ' Success message
+    MsgBox "Prompt uploaded successfully!" & vbCrLf & vbCrLf & _
+           "File: " & FilePath & vbCrLf & _
+           "Length: " & Format(Len(PromptText), "#,##0") & " characters" & vbCrLf & vbCrLf & _
+           "The prompt has been stored in the PROMPT sheet (cell A1)." & vbCrLf & _
+           "Run your xlwings Lite script to use it.", _
+           vbInformation, "Upload Complete"
+
+    ' Activate the PROMPT sheet to show user
+    ws.Activate
+
+    Exit Sub
+
+ErrorHandler:
+    If Err.Number = 53 Then
+        MsgBox "Error: File not found or could not be read." & vbCrLf & vbCrLf & _
+               "Please check the file path and try again.", vbCritical, "File Error"
+    ElseIf Err.Number = 75 Then
+        MsgBox "Error: Access denied. Please check file permissions.", vbCritical, "Permission Error"
+    Else
+        MsgBox "An error occurred while uploading the prompt:" & vbCrLf & vbCrLf & _
+               "Error " & Err.Number & ": " & Err.Description, vbCritical, "Error"
+    End If
+End Sub
+
+
+' ==================== FORMATTING MACRO (EXISTING) ====================
+Public Sub FormatAssessmentSheet()
+    ' This macro formats the ASSESSMENT_RESULTS and DASHBOARD sheets.
+    ' Updated: Fixed Answer column widths to 15, added gridline pattern for 3-row blocks,
+    '          and very light blue shading for empty separator rows
+
+    ' Declare variables
+    Dim ws As Worksheet
+    Dim headerCell As Range
+    Dim lastCol As Long
+    Dim currentSheet As String
+    Dim lastRow As Long
+    Dim i As Long
+    Dim blockStartRow As Long
+    Dim blockEndRow As Long
+    Dim blockRange As Range
+    Dim isEmptyRow As Boolean
+    Dim colCheck As Long
+
+    ' Add error handling
+    On Error GoTo ErrorHandler
+
+    ' --- Step 1: Format ASSESSMENT_RESULTS sheet ---
+    currentSheet = "ASSESSMENT_RESULTS"
+    Set ws = ThisWorkbook.Worksheets(currentSheet)
+
+    ' Find the last used column and row
+    lastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column
+    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+
+    ' FIRST: Remove all gridlines/borders from the entire sheet
+    ws.Cells.Borders.LineStyle = xlNone
+
+    ' Loop through each cell in the header row for column-specific formatting
+    For Each headerCell In ws.Range(ws.Cells(1, 1), ws.Cells(1, lastCol))
+        ' Check if the header is "Question" or one of the "Answer" columns
+        Select Case UCase(headerCell.Value)
+            Case "QUESTION"
+                ' Question column: keep width 30, enable wrap
+                headerCell.EntireColumn.ColumnWidth = 30
+                headerCell.EntireColumn.WrapText = True
+            Case "ANSWER 1", "ANSWER 2", "ANSWER 3", "ANSWER 4", "ANSWER 5"
+                ' Answer columns: fixed width 15, enable wrap
+                headerCell.EntireColumn.ColumnWidth = 15
+                headerCell.EntireColumn.WrapText = True
+        End Select
+    Next headerCell
+
+    ' Apply global formatting to the entire used range
+    With ws.UsedRange
+        ' Set vertical alignment for all columns to Top
+        .VerticalAlignment = xlTop
+        ' Autofit all rows to adjust their height
+        .Rows.AutoFit
+    End With
+
+    ' Format header row (Row 1) with blue/indigo background and white font
+    Set blockRange = ws.Range(ws.Cells(1, 1), ws.Cells(1, lastCol))
+    With blockRange
+        ' Add borders
+        .Borders.LineStyle = xlContinuous
+        .Borders.Weight = xlThin
+        .Borders.ColorIndex = xlAutomatic
+        ' Add blue/indigo background color (RGB: 68, 114, 196 - same as DASHBOARD)
+        .Interior.Color = RGB(68, 114, 196)
+        ' White font
+        .Font.Color = RGB(255, 255, 255)
+        ' Bold font for better visibility
+        .Font.Bold = True
+    End With
+
+    ' Process data rows to add gridlines around 3-row blocks
+    ' Pattern: Each assessment is 3 rows (Original, Rewrite, Issues), then empty separator row
+    i = 2 ' Start from row 2 (after header)
+    blockStartRow = 0
+
+    Do While i <= lastRow
+        ' Check if current row has data in Model column (Column A)
+        If Not IsEmpty(ws.Cells(i, 1).Value) Then
+            ' This row has data, check if it's the start of a new block
+            If blockStartRow = 0 Then
+                ' Mark the start of a new block
+                blockStartRow = i
+            End If
+
+            ' Check if next row is empty or if we've reached the end
+            ' Also check if we've collected 3 rows (a complete block)
+            If i - blockStartRow + 1 = 3 Then
+                ' We have a complete 3-row block, add borders
+                blockEndRow = i
+                Set blockRange = ws.Range(ws.Cells(blockStartRow, 1), ws.Cells(blockEndRow, lastCol))
+                With blockRange.Borders
+                    .LineStyle = xlContinuous
+                    .Weight = xlThin
+                    .ColorIndex = xlAutomatic
+                End With
+                ' Reset for next block
+                blockStartRow = 0
+            End If
+        Else
+            ' Empty row - reset block start if we were in the middle of a block
+            If blockStartRow > 0 And i - blockStartRow < 3 Then
+                ' We have a partial block (less than 3 rows), still add borders
+                blockEndRow = i - 1
+                Set blockRange = ws.Range(ws.Cells(blockStartRow, 1), ws.Cells(blockEndRow, lastCol))
+                With blockRange.Borders
+                    .LineStyle = xlContinuous
+                    .Weight = xlThin
+                    .ColorIndex = xlAutomatic
+                End With
+            End If
+            blockStartRow = 0
+
+            ' Apply very light blue shading to empty separator rows
+            ' Check if the entire row is empty (check all columns)
+            isEmptyRow = True
+            For colCheck = 1 To lastCol
+                If Not IsEmpty(ws.Cells(i, colCheck).Value) Then
+                    isEmptyRow = False
+                    Exit For
+                End If
+            Next colCheck
+
+            If isEmptyRow Then
+                ' Apply very light blue background to empty separator row
+                Set blockRange = ws.Range(ws.Cells(i, 1), ws.Cells(i, lastCol))
+                blockRange.Interior.Color = RGB(200, 230, 255) ' Very light blue
+            End If
+        End If
+
+        i = i + 1
+    Loop
+
+    ' Handle any remaining partial block at the end
+    If blockStartRow > 0 Then
+        blockEndRow = lastRow
+        Set blockRange = ws.Range(ws.Cells(blockStartRow, 1), ws.Cells(blockEndRow, lastCol))
+        With blockRange.Borders
+            .LineStyle = xlContinuous
+            .Weight = xlThin
+            .ColorIndex = xlAutomatic
+        End With
+    End If
+
+    ' --- Step 2: Format DASHBOARD sheet ---
+    currentSheet = "DASHBOARD"
+    Set ws = ThisWorkbook.Worksheets(currentSheet)
+
+    ' Autofit all columns on the dashboard
+    ws.Columns.AutoFit
+
+    ' Apply header formatting (mirroring Python script)
+    Dim dashboardLastCol As Long
+    dashboardLastCol = ws.Cells(1, ws.Columns.Count).End(xlToLeft).Column
+    With ws.Range(ws.Cells(1, 1), ws.Cells(1, dashboardLastCol))
+        .Interior.Color = RGB(68, 114, 196) ' #4472C4
+        .Font.Color = RGB(255, 255, 255)    ' #FFFFFF
+        .Font.Bold = True
+    End With
+
+    ' Apply percentage formatting (mirroring Python script)
+    Dim metricRow As Long
+    Dim metricName As String
+    Dim dashboardLastRow As Long
+    dashboardLastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+
+    For metricRow = 2 To dashboardLastRow ' Start from row 2 (after header)
+        metricName = ws.Cells(metricRow, 1).Value ' Metric name is in Column A
+        If metricName = "Success Rate (%)" Or metricName = "Change Rate (%)" Then
+            ws.Range(ws.Cells(metricRow, 2), ws.Cells(metricRow, dashboardLastCol)).NumberFormat = "0.00%"
+        End If
+    Next metricRow
+
+    ' --- Final Success Message ---
+    MsgBox "Formatting of ASSESSMENT_RESULTS and DASHBOARD sheets is complete!", vbInformation
+
+    ' Exit the sub to avoid falling into the error handler
+    Exit Sub
+
+' Error handling block
+ErrorHandler:
+    ' Check if the error is "Subscript out of range", which occurs if a sheet name is not found
+    If Err.Number = 9 Then
+        MsgBox "Error: The '" & currentSheet & "' sheet was not found. Please ensure it exists before running the formatter.", vbCritical, "Sheet Not Found"
+    Else
+        ' For any other error, show a generic message with the error description
+        MsgBox "An unexpected error occurred on sheet '" & currentSheet & "': " & Err.Description, vbCritical, "Error"
+    End If
+
+End Sub
+
+
+' ==================== NEW MACRO: EXPORT SHEET TO CSV (GENERIC & ROBUST) ====================
+Sub ExportAssessmentToCSV()
+    ' Exports a specified sheet to a CSV file with robust error handling.
+    ' - Reads save path from MASTER!C30
+    ' - Reads sheet name from MASTER!C31
+    ' - Prevents screen flickering and protects the original workbook by using a temporary workbook.
+    ' - Handles file existence by creating a new file with a suffix (e.g., _1, _2).
+    ' - Ensures the user remains on the MASTER sheet.
+
+    Dim wsToExport As Worksheet
+    Dim wsMaster As Worksheet
+    Dim tempWB As Workbook
+    Dim savePath As String
+    Dim sheetNameToExport As String
+    Dim baseName As String
+    Dim fileExt As String
+    Dim finalPath As String
+    Dim counter As Long
+    Dim currentDisplayAlerts As Boolean
+    Dim currentScreenUpdating As Boolean
+
+    ' Add error handling
+    On Error GoTo ErrorHandler
+
+    ' --- UI Optimization & Setup ---
+    currentScreenUpdating = Application.ScreenUpdating
+    currentDisplayAlerts = Application.DisplayAlerts
+    Application.ScreenUpdating = False
+    Application.DisplayAlerts = False
+
+    ' --- Configuration & Validation ---
+    Set wsMaster = ThisWorkbook.Sheets("MASTER")
+    savePath = wsMaster.Range("C30").Value
+    sheetNameToExport = wsMaster.Range("C31").Value
+
+    If savePath = "" Then
+        MsgBox "Error: Save path in MASTER!C30 is empty.", vbCritical, "Export Error"
+        GoTo CleanExit
+    End If
+    If Right(savePath, 1) <> "\" Then
+        savePath = savePath & "\"
+    End If
+    If Dir(savePath, vbDirectory) = "" Then
+        MsgBox "Error: The directory '" & savePath & "' does not exist.", vbCritical, "Export Error"
+        GoTo CleanExit
+    End If
+    If sheetNameToExport = "" Then
+        MsgBox "Error: Sheet name to export in MASTER!C31 is empty.", vbCritical, "Export Error"
+        GoTo CleanExit
+    End If
+
+    On Error Resume Next
+    Set wsToExport = ThisWorkbook.Sheets(sheetNameToExport)
+    On Error GoTo ErrorHandler
+    If wsToExport Is Nothing Then
+        MsgBox "Error: The sheet '" & sheetNameToExport & "' specified in MASTER!C31 does not exist.", vbCritical, "Export Error"
+        GoTo CleanExit
+    End If
+
+    ' --- Find Available Filename (Simplified and More Robust) ---
+    baseName = savePath & sheetNameToExport
+    fileExt = ".csv"
+    counter = 1
+    finalPath = baseName & fileExt
+
+    ' If the base file name already exists, find the next available suffix
+    If Dir(finalPath) <> "" Then
+        Do
+            finalPath = baseName & "_" & counter & fileExt
+            counter = counter + 1
+            If counter > 101 Then ' Safety break
+                MsgBox "Error: Could not find an available filename after 100 attempts.", vbCritical, "Export Error"
+                GoTo CleanExit
+            End If
+        Loop While Dir(finalPath) <> ""
+    End If
+
+    ' --- Copy to Temp Workbook and Save (Prevents side-effects on original workbook) ---
+    wsToExport.Copy ' Copies the sheet to a new, temporary workbook which becomes active
+    Set tempWB = ActiveWorkbook ' Get a reference to the new workbook
+
+    ' Save the temporary workbook as the CSV file
+    tempWB.SaveAs fileName:=finalPath, FileFormat:=xlCSV, CreateBackup:=False
+    
+    ' Close the temporary workbook without saving changes to it
+    tempWB.Close SaveChanges:=False
+
+    ' --- User Feedback & Cleanup ---
+    MsgBox "Successfully exported '" & sheetNameToExport & "' to:" & vbCrLf & finalPath, vbInformation, "Export Complete"
+    wsMaster.Activate ' Ensure user is back on the master sheet
+
+CleanExit:
+    ' Restore original application settings
+    Application.ScreenUpdating = currentScreenUpdating
+    Application.DisplayAlerts = currentDisplayAlerts
+    Exit Sub
+
+ErrorHandler:
+    ' Restore settings on error
+    Application.ScreenUpdating = currentScreenUpdating
+    Application.DisplayAlerts = currentDisplayAlerts
+    MsgBox "An unexpected error occurred during CSV export:" & vbCrLf & Err.Description, vbCritical, "Export Error"
+    Resume CleanExit
+End Sub
+
+' ==================== NEW MACRO: EXPORT JUDGE JSON TO FILE ====================
+Sub ExportJudgeJSONToFile()
+    ' Exports the content of LLM_JUDGE_INPUT!A1 to a .json file.
+    ' - Reads save path from MASTER!C32.
+    ' - Handles file existence by creating a new file with a suffix (_1, _2, etc.).
+    ' - Writes the file in UTF-8 format to preserve all characters.
+
+    Dim wsMaster As Worksheet
+    Dim wsJudge As Worksheet
+    Dim savePath As String
+    Dim jsonContent As String
+    Dim fso As Object ' FileSystemObject
+    Dim stream As Object ' ADODB.Stream
+    Dim baseName As String
+    Dim fileExt As String
+    Dim finalPath As String
+    Dim counter As Long
+
+    On Error GoTo ErrorHandler
+
+    ' --- Configuration & Validation ---
+    Set wsMaster = ThisWorkbook.Sheets("MASTER")
+    savePath = wsMaster.Range("C32").Value
+
+    ' Validate save path
+    If savePath = "" Then
+        MsgBox "Error: Save path in MASTER!C32 is empty.", vbCritical, "Export Error"
+        Exit Sub
+    End If
+    If Right(savePath, 1) <> "\" Then
+        savePath = savePath & "\"
+    End If
+
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    If Not fso.FolderExists(savePath) Then
+        MsgBox "Error: The directory '" & savePath & "' does not exist.", vbCritical, "Export Error"
+        Exit Sub
+    End If
+
+    ' Validate source sheet and content
+    On Error Resume Next
+    Set wsJudge = ThisWorkbook.Sheets("LLM_JUDGE_INPUT")
+    On Error GoTo ErrorHandler
+    If wsJudge Is Nothing Then
+        MsgBox "Error: The 'LLM_JUDGE_INPUT' sheet does not exist. Please run the assessment script first.", vbCritical, "Export Error"
+        Exit Sub
+    End If
+
+    jsonContent = wsJudge.Range("A1").Value
+    If jsonContent = "" Then
+        MsgBox "Error: Cell A1 on the 'LLM_JUDGE_INPUT' sheet is empty. Nothing to export.", vbCritical, "Export Error"
+        Exit Sub
+    End If
+
+    ' --- Find Available Filename ---
+    baseName = "assessment_results"
+    fileExt = ".json"
+    counter = 1
+    finalPath = savePath & baseName & fileExt
+
+    Do While fso.FileExists(finalPath)
+        finalPath = savePath & baseName & "_" & counter & fileExt
+        counter = counter + 1
+        If counter > 100 Then ' Safety break
+            MsgBox "Error: Could not find an available filename after 100 attempts.", vbCritical, "Export Error"
+            Exit Sub
+        End If
+    Loop
+
+    ' --- Write Content to File using ADODB.Stream for UTF-8 support ---
+    Set stream = CreateObject("ADODB.Stream")
+    stream.Type = 2 ' adTypeText
+    stream.Charset = "UTF-8"
+    stream.Open
+    stream.WriteText jsonContent
+    stream.SaveToFile finalPath, 2 ' adSaveCreateOverWrite
+    stream.Close
+
+    ' --- User Feedback ---
+    MsgBox "Successfully exported Judge JSON to:" & vbCrLf & finalPath, vbInformation, "Export Complete"
+
+    Exit Sub
+
+ErrorHandler:
+    MsgBox "An unexpected error occurred during JSON export:" & vbCrLf & Err.Description, vbCritical, "Export Error"
+End Sub
+'
+

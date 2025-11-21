@@ -1,0 +1,20 @@
+Model,questionid,Item,Change Required?,Question,Answer 1,Answer 2,Answer 3,Answer 4,Answer 5
+gpt-5-mini,65477,Original,1,<div>On what factors does the heat generated in a conductor depend upon?</div> <p> </p>,<p>Directly proportional to the time</p>,<p>Inversely proportional to the time</p>,<p>Directly proportional to the density</p>,<p>Inversely proportional to the mass</p>,
+gpt-5-mini,65477,Rewrite,1,<div>On which factors does the heat generated in a conductor depend?</div> <p> </p>,<p>Directly proportional to time</p>,<p>Inversely proportional to time</p>,<p>Directly proportional to density</p>,<p>Inversely proportional to mass</p>,
+gpt-5-mini,65477,Issues,1,Redundant prepositions 'on' and 'upon' used together.,Unnecessary article 'the'.,Unnecessary article 'the'.,Unnecessary article 'the'.,Unnecessary article 'the'.,
+,,,,,,,,,
+gpt-5-mini,466165,Original,1,<p>Which of the following is the correct for the phenomenon of sea breeze?</p>,<p>It occur during night.</p>,<p>Air moves from land to sea.</p>,"<p>During the day, air above land is warmer than air above water.</p>","<p>During the day, air above water is warmer than air above land.</p>",
+gpt-5-mini,466165,Rewrite,1,<p>Which of the following is correct for the phenomenon of sea breeze?</p>,<p>It occurs at night.</p>,,,,
+gpt-5-mini,466165,Issues,1,Incorrect phrasing 'is the correct'.,Verb and preposition error.,,,,
+,,,,,,,,,
+gpt-5-mini,403851,Original,1,Jack and Jill hear a gunshot 2 seconds after it is fired. How far away from the gun they are standing? (The speed of sound in air is equal to 330 ms<sup>-1</sup>),330 m,150 m,660 m,890 m,F
+gpt-5-mini,403851,Rewrite,1,Jack and Jill hear a gunshot 2 seconds after it is fired. How far away from the gun are they standing? (The speed of sound in air is equal to 330 m s<sup>-1</sup>),,,,,
+gpt-5-mini,403851,Issues,1,Incorrect word order and unit formatting (missing space).,,,,,
+,,,,,,,,,
+gpt-5-mini,319381,Original,1,A cup of turmeric milk accidently fell on Priya's dress and she washed it using soap solution. She observed the yellow colour of turmeric changed to red. What is the reason for this colour change?,The alkali present in the soap solution reacted with the turmeric.,The acid present in the soap solution reacted with the turmeric.,The fatty acid in the turmeric reacted with the acid in the soap solution,None of these,F
+gpt-5-mini,319381,Rewrite,1,"A cup of turmeric milk accidentally fell on Priya's dress, and she washed it with a soap solution. She observed the yellow colour of turmeric change to red. What is the reason for this colour change?",,,The fatty acid in the turmeric reacted with the acid in the soap solution.,None of these.,
+gpt-5-mini,319381,Issues,1,Spelling error and awkward phrasing.,,,Missing full stop; inconsistent punctuation.,Missing full stop; inconsistent punctuation.,
+,,,,,,,,,
+gpt-5-mini,123226,Original,1,<p>An iron ball at 60<sup>o</sup>C is dropped in a mug containing water at 60<sup>o</sup>C. The temperature of water ______.</p>,<p>slightly increase</p>,<p>decrease</p>,<p>remain same</p>,<p>increase</p>,
+gpt-5-mini,123226,Rewrite,1,<p>An iron ball at 60<sup>°</sup>C is dropped in a mug containing water at 60<sup>°</sup>C. The temperature of the water ______.</p>,<p>Slightly increases</p>,<p>Decreases</p>,<p>Remains the same</p>,<p>Increases</p>,
+gpt-5-mini,123226,Issues,1,Missing 'the' before 'water' and degree-symbol formatting.,Lowercase and incorrect verb form.,Lowercase and incorrect verb form.,Lowercase and missing article.,Lowercase and incorrect verb form.,

@@ -1,0 +1,82 @@
+═══════════════════════════════════════════════════════════════════════
+                    LLM ASSESSMENT QUALITY REPORT
+              google/gemini-2.5-flash-lite-preview-09-2025
+═══════════════════════════════════════════════════════════════════════
+
+📊 OVERALL STATISTICS
+───────────────────────────────────────────────────────────────────────
+Total Questions Assessed:        25
+
+Valid Improvements:              8 (32.0%)
+True Errors:                     6 (24.0%)
+Hallucinated Reasons:            11 (44.0%)
+
+True Error Rate:                 24.0% (6/25) - DAMAGING
+Hallucination Rate:              44.0% (11/25) - NON-DAMAGING NOISE
+Valid Improvement Rate:          32.0% (8/25) - GOOD
+
+
+🎯 QUALITY BREAKDOWN
+───────────────────────────────────────────────────────────────────────
+
+✅ VALID IMPROVEMENTS (8 questions)
+  - Question 156960: Corrected spelling of 'hurrily' to 'hurriedly'.
+  - Question 4216: Corrected subject-verb agreement and added an article.
+  - Question 327294: Correctly identified no changes were needed.
+  - Question 335648: Correctly identified no issues.
+  - Question 267477: Correctly identified no issues.
+  - Question 267807: Correctly identified no issues.
+  - Question 274593: Correctly identified no issues.
+  - Question 334410: Changed an imperative to a question, a minor improvement.
+
+❌ TRUE ERRORS (6 questions) - CRITICAL
+  - Question 115135: CRITICAL: Deleted the entire HTML <ol> list from the question.
+  - Question 104238: Incorrectly added a question mark to an imperative instruction.
+  - Question 227044: Incorrectly changed a fill-in-the-blank statement to a question.
+  - Question 227092: Incorrectly changed a fill-in-the-blank statement to a question.
+  - Question 284567: Incorrectly added a question mark to the 'Reason (R)' statement.
+  - Question 398718: Incorrectly added a question mark to an imperative sentence.
+
+💨 HALLUCINATED REASONS (11 questions) - NOISE BUT NO DAMAGE
+  - Question 68266: Hallucinated that the question was missing a question mark.
+  - Question 64292: Claimed a question mark was missing, but it was already there.
+  - Question 66631: Hallucinated about a missing question mark and punctuation in answers.
+  - Question 100278: Hallucinated about a missing question mark and answer capitalization.
+  - Question 102215: Hallucinated about a missing question mark.
+  - Question 146518: Hallucinated about a missing question mark and answer punctuation.
+  - Question 147599: Hallucinated about a missing question mark.
+  - Question 164548: Hallucinated about a missing question mark.
+  - Question 282590: Hallucinated about a missing question mark and answer punctuation.
+  - Question 306744: Hallucinated about a missing question mark and answer punctuation.
+  - Question 338540: Hallucinated about a missing question mark.
+
+
+📈 DETAILED FINDINGS
+───────────────────────────────────────────────────────────────────────
+The model showed some capability in identifying genuine errors, such as a spelling mistake (156960) and a grammatical error (4216). It also correctly identified several questions that needed no changes, which is a positive sign.
+
+However, the assessment is severely undermined by two major issues:
+
+1.  **Critical True Errors (24.0%):** The model made several damaging changes. Most critically, it deleted essential HTML content from a question (115135). It also repeatedly demonstrated a fundamental misunderstanding of sentence structure, incorrectly adding question marks to imperative or declarative sentences (104238, 227044, 227092, 284567, 398718). These errors alter the meaning and correctness of the questions.
+
+2.  **High Hallucination Rate (44.0%):** The most frequent issue was hallucination. In 11 out of 25 cases, the model claimed a question was missing a question mark when it was already present. This indicates a systemic issue in its ability to parse and check existing punctuation, leading to a high volume of non-damaging but noisy and unhelpful suggestions.
+
+
+💡 SUMMARY VERDICT
+───────────────────────────────────────────────────────────────────────
+True Error Rate: 24.0%
+  - This is a concerning rate of damaging errors. The deletion of content is particularly critical.
+
+Hallucination Rate: 44.0%
+  - This rate is very high. While non-damaging, it shows the model is confused and generates a significant amount of noise, wasting tokens and providing unreliable feedback.
+
+Valid Improvement Rate: 32.0%
+  - The model does find some real errors, but this is overshadowed by the high error and hallucination rates.
+
+Overall Quality: POOR
+  - The high rate of true errors, especially the critical deletion of content, combined with a very high hallucination rate, makes the overall quality of this assessment poor and unreliable. The model cannot be trusted to make autonomous corrections without significant risk of damaging the content.
+
+═══════════════════════════════════════════════════════════════════════
+Generated: 2025-11-17
+Judge: gemini-cli
+═══════════════════════════════════════════════════════════════════════

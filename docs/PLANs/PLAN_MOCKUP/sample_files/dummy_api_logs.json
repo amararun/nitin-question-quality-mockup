@@ -1,0 +1,146 @@
+[
+  {
+    "id": "log_20251119_143215_001",
+    "timestamp": "2025-11-19T14:32:15.234Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_001",
+    "question_ids": [65080, 64292, 115135, 227044, 227092],
+    "status": "success",
+    "tokens_used": {
+      "input": 3557,
+      "output": 1154,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00613,
+    "response_time_ms": 4120,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a professional editor specializing in educational content...\"}, {\"role\": \"user\", \"content\": \"Assess the following 5 questions for grammar, spelling, and punctuation errors...\"}], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-AbCd123XyZ\", \"object\": \"chat.completion\", \"created\": 1732024935, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{\\\"questions\\\": [{\\\"questionid\\\": 65080, \\\"question_rewrite\\\": \\\"...\\\", \\\"question_reason\\\": \\\"No changes needed.\\\", ...}]}\"}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 3557, \"completion_tokens\": 1154, \"total_tokens\": 4711}}",
+    "error_message": null
+  },
+  {
+    "id": "log_20251119_143235_002",
+    "timestamp": "2025-11-19T14:32:35.789Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_002",
+    "question_ids": [156960, 398718, 284567, 301245, 412389],
+    "status": "success",
+    "tokens_used": {
+      "input": 3622,
+      "output": 1167,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00622,
+    "response_time_ms": 3890,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a professional editor...\"}, {\"role\": \"user\", \"content\": \"...\"}], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-EfGh456WxY\", \"object\": \"chat.completion\", \"created\": 1732024955, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"{...}\"}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 3622, \"completion_tokens\": 1167, \"total_tokens\": 4789}}",
+    "error_message": null
+  },
+  {
+    "id": "log_20251119_143252_003",
+    "timestamp": "2025-11-19T14:32:52.456Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_003",
+    "question_ids": [523467, 634512, 745623, 856734, 967845],
+    "status": "success",
+    "tokens_used": {
+      "input": 3489,
+      "output": 1145,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00605,
+    "response_time_ms": 4350,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-IjKl789UvW\", \"object\": \"chat.completion\", \"created\": 1732024972, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{...}], \"usage\": {\"prompt_tokens\": 3489, \"completion_tokens\": 1145, \"total_tokens\": 4634}}",
+    "error_message": null
+  },
+  {
+    "id": "log_20251119_143310_004",
+    "timestamp": "2025-11-19T14:33:10.123Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_004",
+    "question_ids": [178956, 289067, 390178, 491289, 592390],
+    "status": "success",
+    "tokens_used": {
+      "input": 3541,
+      "output": 1132,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00606,
+    "response_time_ms": 3760,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-MnOp012TsR\", \"object\": \"chat.completion\", \"created\": 1732024990, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{...}], \"usage\": {\"prompt_tokens\": 3541, \"completion_tokens\": 1132, \"total_tokens\": 4673}}",
+    "error_message": null
+  },
+  {
+    "id": "log_20251119_143328_005",
+    "timestamp": "2025-11-19T14:33:28.789Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_005",
+    "question_ids": [693501, 794612, 895723, 996834, 107945],
+    "status": "success",
+    "tokens_used": {
+      "input": 3598,
+      "output": 1176,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00623,
+    "response_time_ms": 4210,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-QrSt345PqN\", \"object\": \"chat.completion\", \"created\": 1732025008, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{...}], \"usage\": {\"prompt_tokens\": 3598, \"completion_tokens\": 1176, \"total_tokens\": 4774}}",
+    "error_message": null
+  },
+  {
+    "id": "log_20251119_143347_006",
+    "timestamp": "2025-11-19T14:33:47.234Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_006",
+    "question_ids": [218056, 329167, 430278, 531389, 632490],
+    "status": "success",
+    "tokens_used": {
+      "input": 3612,
+      "output": 1189,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00628,
+    "response_time_ms": 3980,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-UvWx678MlK\", \"object\": \"chat.completion\", \"created\": 1732025027, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{...}], \"usage\": {\"prompt_tokens\": 3612, \"completion_tokens\": 1189, \"total_tokens\": 4801}}",
+    "error_message": null
+  },
+  {
+    "id": "log_20251119_143405_007",
+    "timestamp": "2025-11-19T14:34:05.567Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_007",
+    "question_ids": [733601, 834712, 935823, 146934],
+    "status": "success",
+    "tokens_used": {
+      "input": 2845,
+      "output": 934,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00494,
+    "response_time_ms": 3120,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-YzAb901JiH\", \"object\": \"chat.completion\", \"created\": 1732025045, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{...}], \"usage\": {\"prompt_tokens\": 2845, \"completion_tokens\": 934, \"total_tokens\": 3779}}",
+    "error_message": null
+  },
+  {
+    "id": "log_20251119_143420_008",
+    "timestamp": "2025-11-19T14:34:20.890Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_008",
+    "question_ids": [592390, 693501],
+    "status": "success",
+    "tokens_used": {
+      "input": 2192,
+      "output": 537,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00326,
+    "response_time_ms": 2450,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...], \"max_tokens\": 7000, \"temperature\": 0.2, \"top_p\": 1}",
+    "response_json": "{\"id\": \"chatcmpl-CdEf234GfE\", \"object\": \"chat.completion\", \"created\": 1732025060, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{...}], \"usage\": {\"prompt_tokens\": 2192, \"completion_tokens\": 537, \"total_tokens\": 2729}}",
+    "error_message": null
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "_comment": "Copy these values from your Excel DASHBOARD sheet after running assessment",
+  "api_calls": {
+    "total": 2,
+    "successful": 2,
+    "failed": 0
+  },
+  "questions": {
+    "total": 10,
+    "processed": 10,
+    "changes_recommended": 5,
+    "change_rate_percent": 50.0
+  },
+  "tokens": {
+    "input_total": 5832,
+    "output_total": 2503,
+    "reasoning_total": 0
+  },
+  "cost": {
+    "total_usd": 0.0065,
+    "per_question_usd": 0.00065,
+    "per_100k_usd": 64.64
+  },
+  "time": {
+    "total_seconds": 41,
+    "per_question_seconds": 4.1,
+    "per_api_call_seconds": 20.5
+  }
+}

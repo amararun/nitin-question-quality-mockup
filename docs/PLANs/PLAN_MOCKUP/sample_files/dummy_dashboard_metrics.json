@@ -1,0 +1,28 @@
+{
+  "api_calls": {
+    "total": 8,
+    "successful": 8,
+    "failed": 0
+  },
+  "questions": {
+    "total": 40,
+    "processed": 38,
+    "changes_recommended": 12,
+    "change_rate_percent": 31.58
+  },
+  "tokens": {
+    "input_total": 28456,
+    "output_total": 9234,
+    "reasoning_total": 0
+  },
+  "cost": {
+    "total_usd": 0.0491,
+    "per_question_usd": 0.001228,
+    "per_100k_usd": 122.75
+  },
+  "time": {
+    "total_seconds": 187,
+    "per_question_seconds": 4.675,
+    "per_api_call_seconds": 23.375
+  }
+}

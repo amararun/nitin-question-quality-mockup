@@ -1,0 +1,17 @@
+# Pin the version of packages that are installed from PyPI.
+# Don't pin the version if they are on this list:
+# https://pyodide.org/en/stable/usage/packages-in-pyodide.html
+#
+# New packages are installed on the fly.
+# However, the following situations require a restart:
+# - removing a package
+# - changing the version of a package
+# - adding an optional dependency of xlwings, e.g, polars
+
+xlwings==0.33.15  # required
+python-dotenv==1.1.1  # required
+pyodide-http  # required
+black  # required
+pandas
+matplotlib
+requests

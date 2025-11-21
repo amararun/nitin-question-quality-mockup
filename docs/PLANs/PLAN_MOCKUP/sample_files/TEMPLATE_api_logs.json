@@ -1,0 +1,61 @@
+[
+  {
+    "_comment": "Extract these from your Python console logs or API response history",
+    "id": "log_001",
+    "timestamp": "2025-11-19T14:32:15.234Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_001",
+    "question_ids": [65080, 64292, 115135, 227044, 227092],
+    "status": "success",
+    "tokens_used": {
+      "input": 2916,
+      "output": 1251,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00325,
+    "response_time_ms": 4120,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a grammar expert...\"}, {\"role\": \"user\", \"content\": \"Assess the following questions...\"}], \"max_tokens\": 7000, \"temperature\": 0.2}",
+    "response_json": "{\"id\": \"chatcmpl-xyz123\", \"object\": \"chat.completion\", \"created\": 1732024935, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{\"index\": 0, \"message\": {\"role\": \"assistant\", \"content\": \"Here are the assessments...\"}, \"finish_reason\": \"stop\"}], \"usage\": {\"prompt_tokens\": 2916, \"completion_tokens\": 1251, \"total_tokens\": 4167}}",
+    "error_message": null
+  },
+  {
+    "id": "log_002",
+    "timestamp": "2025-11-19T14:32:35.789Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_002",
+    "question_ids": [156960, 398718, 284567, 115135, 3401],
+    "status": "success",
+    "tokens_used": {
+      "input": 2916,
+      "output": 1252,
+      "reasoning": 0
+    },
+    "cost_usd": 0.00326,
+    "response_time_ms": 3890,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...]}",
+    "response_json": "{\"id\": \"chatcmpl-xyz456\", \"object\": \"chat.completion\", \"created\": 1732024955, \"model\": \"google/gemini-2.5-flash-lite\", \"choices\": [{...}], \"usage\": {...}}",
+    "error_message": null
+  },
+  {
+    "_comment": "Example of failed API call",
+    "id": "log_003",
+    "timestamp": "2025-11-19T14:33:12.456Z",
+    "model": "google/gemini-2.5-flash-lite-preview-09-2025",
+    "batch_id": "batch_003",
+    "question_ids": [22059, 24557, 24641],
+    "status": "failed",
+    "tokens_used": {
+      "input": 0,
+      "output": 0,
+      "reasoning": 0
+    },
+    "cost_usd": 0.0,
+    "response_time_ms": 1200,
+    "request_json": "{\"model\": \"google/gemini-2.5-flash-lite\", \"messages\": [...]}",
+    "response_json": null,
+    "error_message": "Rate limit exceeded. Please retry after 60 seconds."
+  },
+  {
+    "_comment": "Add 2-7 more log entries here for variety"
+  }
+]

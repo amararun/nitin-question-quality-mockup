@@ -1,0 +1,87 @@
+{
+  "_comment": "This is mostly dummy data for mockup visualization purposes",
+  "summary": {
+    "total_records": 23,
+    "updated_records": 21,
+    "failed_records": 2,
+    "start_time": "2025-11-19T14:32:10Z",
+    "end_time": "2025-11-19T14:32:28Z",
+    "duration_seconds": 18
+  },
+  "performance": {
+    "total_time_seconds": 18.4,
+    "avg_time_per_record_ms": 800,
+    "throughput_records_per_second": 1.25
+  },
+  "errors": {
+    "count": 2,
+    "breakdown": [
+      {
+        "error_type": "Foreign key violation",
+        "count": 1,
+        "sample_questionids": [156789],
+        "description": "Worksheet ID S99INVALID does not exist in worksheets table"
+      },
+      {
+        "error_type": "Null constraint violation",
+        "count": 1,
+        "sample_questionids": [156790],
+        "description": "Final question cannot be NULL for approved status"
+      }
+    ]
+  },
+  "validation": {
+    "pre_update_count": 19847,
+    "post_update_count": 19847,
+    "data_integrity_check": "passed",
+    "foreign_key_violations": 0,
+    "null_constraint_violations": 0,
+    "html_tags_balanced": true,
+    "character_encoding_valid": true,
+    "field_length_limits_respected": true,
+    "referential_integrity_intact": true,
+    "unmodified_columns_checksums_match": true
+  },
+  "rollback_available": true,
+  "backup_location": "/backups/questions_backup_2025-11-19_143210.sql",
+  "additional_checks": {
+    "sample_verification": {
+      "sample_size": 10,
+      "verified_correct": 10,
+      "verification_passed": true
+    },
+    "unmodified_columns": [
+      "questionid",
+      "existing_question_id",
+      "questiontype",
+      "totalanswers",
+      "questionImage",
+      "answer1Image",
+      "answer2Image",
+      "answer3Image",
+      "answer4Image",
+      "answer5Image",
+      "correctanswer",
+      "hintImage",
+      "difficultylevel",
+      "question_type",
+      "status",
+      "worksheet_id",
+      "assigned_worksheet_ids",
+      "topic",
+      "attempt_counter",
+      "section_name",
+      "section_marks",
+      "section"
+    ],
+    "modified_columns": [
+      "question",
+      "answer1",
+      "answer2",
+      "answer3",
+      "answer4",
+      "answer5",
+      "hint"
+    ]
+  }
+}
