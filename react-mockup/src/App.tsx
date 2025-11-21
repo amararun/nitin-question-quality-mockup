@@ -2,6 +2,7 @@ import { AppProvider, useApp } from "@/context/AppContext"
 import { Layout } from "@/components/layout/Layout"
 import { ReviewModule } from "@/components/review/ReviewModule"
 import { LLMModule } from "@/components/llm/LLMModule"
+import { BatchUpdateModule } from "@/components/batch/BatchUpdateModule"
 
 function AppContent() {
   const { activeNav, setActiveNav } = useApp()
@@ -10,11 +11,7 @@ function AppContent() {
     <Layout activeNav={activeNav} onNavChange={setActiveNav}>
       {activeNav === 'review' && <ReviewModule />}
       {activeNav === 'llm' && <LLMModule />}
-      {activeNav === 'batch' && (
-        <div className="text-center text-muted-foreground py-12">
-          Batch Update Module - Coming in Phase 4
-        </div>
-      )}
+      {activeNav === 'batch' && <BatchUpdateModule />}
     </Layout>
   )
 }
