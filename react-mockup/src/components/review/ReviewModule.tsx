@@ -13,12 +13,19 @@ export function ReviewModule() {
   const [llmClassification, setLlmClassification] = useState("all")
   const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const handleRefresh = () => {
+  const handleRefresh = async () => {
     if (!worksheetId.trim()) {
       setQuestions([])
       return
     }
+
+    // Simulate database fetch with loading state
+    setIsLoading(true)
+    
+    // Simulate 5 second delay for "pulling data from database"
+    await new Promise(resolve => setTimeout(resolve, 5000))
 
     // Filter mock questions by worksheet_id
     const filtered = (mockQuestionsData as any[]).filter(
@@ -26,6 +33,7 @@ export function ReviewModule() {
     ) as Question[]
     setQuestions(filtered)
     setCurrentPage(1)
+    setIsLoading(false)
   }
 
   // Apply filters
@@ -60,6 +68,7 @@ export function ReviewModule() {
         worksheetId={worksheetId}
         reviewStatus={reviewStatus}
         llmClassification={llmClassification}
+        isLoading={isLoading}
         onWorksheetIdChange={setWorksheetId}
         onReviewStatusChange={setReviewStatus}
         onLlmClassificationChange={setLlmClassification}
