@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react"
+import { createContext, useContext, useState } from "react"
 import type { ReactNode } from "react"
 import type { Question, NavItem } from "@/types/index"
 
@@ -17,36 +17,11 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [worksheetId, setWorksheetIdState] = useState<string>(() => {
-    return localStorage.getItem('worksheetId') || 'S09ATOTAN12'
-  })
-  const [activeNav, setActiveNavState] = useState<NavItem>(() => {
-    return (localStorage.getItem('activeNav') as NavItem) || 'review'
-  })
-  const [processedState, setProcessedState] = useState<boolean>(() => {
-    return localStorage.getItem('processedState') === 'true'
-  })
-  const [questions, setQuestionsState] = useState<Question[]>(() => {
-    const saved = localStorage.getItem('questions')
-    return saved ? JSON.parse(saved) : []
-  })
-
-  // Persist to localStorage
-  useEffect(() => {
-    localStorage.setItem('worksheetId', worksheetId)
-  }, [worksheetId])
-
-  useEffect(() => {
-    localStorage.setItem('activeNav', activeNav)
-  }, [activeNav])
-
-  useEffect(() => {
-    localStorage.setItem('processedState', String(processedState))
-  }, [processedState])
-
-  useEffect(() => {
-    localStorage.setItem('questions', JSON.stringify(questions))
-  }, [questions])
+  // Clean slate on every refresh - no localStorage persistence
+  const [worksheetId, setWorksheetIdState] = useState<string>('S09ATOTAN12')
+  const [activeNav, setActiveNavState] = useState<NavItem>('review')
+  const [processedState, setProcessedState] = useState<boolean>(false)
+  const [questions, setQuestionsState] = useState<Question[]>([])
 
   const setWorksheetId = (id: string) => {
     setWorksheetIdState(id)

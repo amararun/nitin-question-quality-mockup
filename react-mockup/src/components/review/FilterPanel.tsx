@@ -8,12 +8,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { RefreshCw } from "lucide-react"
+import { RefreshCw, Loader2 } from "lucide-react"
 
 interface FilterPanelProps {
   worksheetId: string
   reviewStatus: string
   llmClassification: string
+  isLoading?: boolean
   onWorksheetIdChange: (id: string) => void
   onReviewStatusChange: (status: string) => void
   onLlmClassificationChange: (classification: string) => void
@@ -24,6 +25,7 @@ export function FilterPanel({
   worksheetId,
   reviewStatus,
   llmClassification,
+  isLoading = false,
   onWorksheetIdChange,
   onReviewStatusChange,
   onLlmClassificationChange,
@@ -82,9 +84,18 @@ export function FilterPanel({
             </Select>
           </div>
 
-          <Button onClick={onRefresh} className="gap-2">
-            <RefreshCw className="h-4 w-4" />
-            Refresh
+          <Button onClick={onRefresh} className="gap-2" disabled={isLoading}>
+            {isLoading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Pulling data from database...
+              </>
+            ) : (
+              <>
+                <RefreshCw className="h-4 w-4" />
+                Refresh
+              </>
+            )}
           </Button>
         </div>
       </CardContent>
