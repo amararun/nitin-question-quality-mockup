@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
+import { Textarea } from "@/components/ui/textarea"
 import {
   Select,
   SelectContent,
@@ -12,7 +13,8 @@ import {
 } from "@/components/ui/select"
 import { Switch } from "@/components/ui/switch"
 import { useApp } from "@/context/AppContext"
-import { Loader2 } from "lucide-react"
+import { Loader2, ChevronDown, ChevronRight, Eye, Edit2 } from "lucide-react"
+import systemPromptText from "@/data/systemPrompt.txt?raw"
 
 interface ParametersTabProps {
   onProcessComplete: () => void
@@ -29,6 +31,9 @@ export function ParametersTab({ onProcessComplete }: ParametersTabProps) {
   const [batchSize, setBatchSize] = useState("10")
   const [isProcessing, setIsProcessing] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [showPrompt, setShowPrompt] = useState(false)
+  const [isEditingPrompt, setIsEditingPrompt] = useState(false)
+  const [systemPrompt, setSystemPrompt] = useState(systemPromptText)
 
   const handleProcess = async () => {
     setIsProcessing(true)
@@ -72,11 +77,12 @@ export function ParametersTab({ onProcessComplete }: ParametersTabProps) {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>LLM Parameters</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <div className="space-y-4">
+      <Card>
+        <CardHeader>
+          <CardTitle>LLM Parameters</CardTitle>
+        </CardHeader>
+        <CardContent>
         {isProcessing && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <Card className="p-8">
@@ -204,5 +210,69 @@ export function ParametersTab({ onProcessComplete }: ParametersTabProps) {
         </div>
       </CardContent>
     </Card>
+
+    <Card>
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-base">System Prompt</CardTitle>
+          <div className="flex gap-2">
+            {showPrompt && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsEditingPrompt(!isEditingPrompt)}
+              >
+                {isEditingPrompt ? <Eye className="h-4 w-4 mr-2" /> : <Edit2 className="h-4 w-4 mr-2" />}
+                {isEditingPrompt ? "View" : "Edit"}
+              </Button>
+            )}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setShowPrompt(!showPrompt)}
+            >
+              {showPrompt ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+              {showPrompt ? "Collapse" : "Expand"}
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
+      {showPrompt && (
+        <CardContent>
+          {isEditingPrompt ? (
+            <>
+              <Textarea
+                value={systemPrompt}
+                onChange={(e) => setSystemPrompt(e.target.value)}
+                className="min-h-[400px] font-mono text-xs"
+              />
+              <div className="flex justify-end gap-2 mt-3">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setSystemPrompt(systemPromptText)
+                    setIsEditingPrompt(false)
+                  }}
+                >
+                  Reset to Default
+                </Button>
+                <Button
+                  size="sm"
+                  onClick={() => setIsEditingPrompt(false)}
+                >
+                  Save Changes
+                </Button>
+              </div>
+            </>
+          ) : (
+            <pre className="bg-gray-50 p-4 rounded border text-xs overflow-x-auto whitespace-pre-wrap max-h-[400px] overflow-y-auto">
+              {systemPrompt}
+            </pre>
+          )}
+        </CardContent>
+      )}
+    </Card>
+  </div>
   )
 }
